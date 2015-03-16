@@ -1,0 +1,20 @@
+<h1>Todos los cursos</h1>
+ 
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Descripción</th>
+  </tr>
+ 
+  <% @courses.each do |course| %>
+  
+    <tr>
+      <td><%= course.name %></td>
+      <td><%= course.description %></td>
+      <td><%= link_to 'Ir al Curso', course_path(course)%></td>
+    </tr>
+  <% end %>
+</table>
+<p>
+<%= link_to 'Crear Nuevo Curso', new_course_path %>
+</p>

@@ -1,0 +1,22 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @course.name %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @course.description %>
+</p>
+
+
+<% if current_user != @course.owner  && !current_user.is_enroled?(@course) %>
+	<%= form_for :susbcription, url: subscriptions_path do |f| %>
+	<%= hidden_field_tag 'course_id', @course.id %>
+   	<%= f.submit :Inscribirse %>
+
+ <% end %> 
+
+<% end %>
+	
+
